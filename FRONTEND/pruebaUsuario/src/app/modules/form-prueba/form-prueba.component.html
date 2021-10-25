@@ -1,0 +1,105 @@
+<p-toast></p-toast>
+<p-toast position="top-left" key="tl"></p-toast>
+<p-confirmDialog #cd header="Confirmation" icon="pi pi-exclamation-triangle">
+    <p-footer>
+        <button type="button" pButton icon="pi pi-times" label="No" (click)="cd.reject()"></button>
+        <button type="button" pButton icon="pi pi-check" label="Si" (click)="cd.accept()"></button>
+    </p-footer>
+</p-confirmDialog>
+
+
+<p-toast [style]="{marginTop: '80px'}"></p-toast>
+<form [formGroup]="userform" (ngSubmit)="onSubmit()">
+
+
+    <div class="ui-g" style="text-align: -webkit-center">
+        <div class="ui-g-3">
+        </div>
+        <div class="ui-g-6">
+
+            <p-card>
+                <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px; padding-top: '33px';">
+
+
+
+
+
+                    <fieldset>
+                        <legend><b>Formulario</b></legend>
+                        <div style="max-width: 300px; padding-bottom: 60px; padding-top: 20px;">
+                            <h3 style="text-align: left;">Datos personales</h3>
+                            <br>
+
+                            <div>
+                                <span class="ui-float-label">
+                                    <input   style="width : 60%; heigth : 1%" [class.is-invalid]="nombre" formControlName="nombre" type="text" pInputText style="text-transform: uppercase;"> 
+                                    <label for="float-input">Nombre</label>
+                                </span>
+                                <p-message severity="error" text="Este campo es requerido" *ngIf="nombre"></p-message>
+                            </div>
+                            <br>
+                            <div>
+                                <span class="ui-float-label">
+                                    <input   style="width : 60%; heigth : 1%" [class.is-invalid]="apellido" formControlName="apellido" type="text" pInputText style="text-transform: uppercase;"> 
+                                    <label for="float-input">Apellido</label>
+                                </span>
+                                <p-message severity="error" text="Este campo es requerido" *ngIf="apellido"></p-message>
+                            </div>
+                            <br>
+                            <div>
+                                <span class="ui-float-label">
+                                    <input   style="width : 60%; heigth : 1%" [class.is-invalid]="cedula" formControlName="cedula" type="text" pInputText style="text-transform: uppercase;"> 
+                                    <label for="float-input">Cedula</label>
+                                </span>
+                                <p-message severity="error" text="Este campo es requerido" *ngIf="cedula"></p-message>
+                                <p-message severity="error" text="la cedula no puede tener letras" *ngIf="cedula2"></p-message>
+                            </div>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <h3 style="text-align: left;">Datos de contacto</h3>
+
+
+                            <div>
+                                <span class="ui-float-label">
+                                    <input   style="width : 60%; heigth : 1%" [class.is-invalid]="correo" formControlName="correo" type="text" pInputText style="text-transform: uppercase;"> 
+                                    <label for="float-input">Correo</label>
+                                </span>
+                                <p-message severity="error" text="Este campo es requerido" *ngIf="correo"></p-message>
+                                <p-message severity="error" text="formato de Correo invalido" *ngIf="correo2"></p-message>
+                            </div>
+                            <br>
+                            <div>
+                                <span class="ui-float-label">
+                                    <input   style="width : 60%; heigth : 1%" [class.is-invalid]="telefono" formControlName="telefono" type="text" pInputText  style="text-transform: uppercase;"> 
+                                    <label for="float-input">Telefono</label>
+                                </span>
+                                <p-message severity="error" text="Este campo es requerido" *ngIf="telefono"></p-message>
+                                <p-message severity="error" text="el telefono no puede tener letras" *ngIf="telefono2"></p-message>
+                            </div>
+                        </div>
+                    </fieldset>
+
+
+
+
+                    <br>
+                    <div style="text-align:center">
+
+                        <button style="height:30px;width:120px" class="tooltip" title="Guardar" pRipple pButton type="submit" label="Guardar" class="ui-button-rounded" icon="pi pi-check"></button>&nbsp;
+                        <a style="height:30px;width:120px" pButton type="button" class="tooltip" title="Cancelar" pRipple [routerLink]="['/main/listarPrueba']" label="Cancelar" class="ui-button-rounded ui-button-danger" icon="pi pi-times"></a>
+                    </div>
+
+                </div>
+            </p-card>
+
+
+        </div>
+        <div class="ui-g-3">
+        </div>
+
+    </div>
+
+
+</form>
